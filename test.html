@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../jquery-1.6.2.js"></script>
+    <script src="../jquery-ui.js"></script>
+    <script type="text/javascript" src="gridView.js"></script>
+    <script type="text/javascript" src="trinksCombo.js"></script>
+	<link href="trinksCombo.css" rel="stylesheet" type="text/css">
+    <script>
+        $(document).ready(function () {
+            $("#campo2").trinksCombo({
+                url: 'http://localhost/trinks/BackOffice/Cliente/ListarClientesPorEstabelecimento',
+                headerMappings: {
+                    CodigoClienteEstabelecimento: "Código",
+                    Nome: "Nome",
+                    Email: "E-Mail",
+                    TelefonesTexto: "Telefone"
+                },
+                columnsAttr: { CodigoClienteEstabelecimento: { style: 'display:none' } }
+            });
+
+            $("#campo1").trinksCombo({
+                url: 'http://localhost/trinks/BackOffice/Cliente/ListarClientesPorEstabelecimento',
+                headerMappings: {
+                    CodigoClienteEstabelecimento: "Código",
+                    Nome: "Nome",
+                    Email: "E-Mail",
+                    TelefonesTexto: "Telefone"
+                }
+            });
+
+        });
+    </script>
+    <style>
+        .dropDown_trinksCombo { position: absolute; box-shadow: #808080 10px 10px 10px; z-index: 1000; }
+            .dropDown_trinksCombo table { border-spacing: 0; border-collapse: collapse; }
+            .dropDown_trinksCombo td, .dropDown_trinksCombo tr { border: 1px solid #808080; }
+            .dropDown_trinksCombo tbody tr.active { background-color: #ffd800; cursor: pointer; }
+        .empty_trinksCombo { background-color: #EEEEEE; }
+    </style>
+</head>
+<body>
+    <form action="/" method="post" id="form">
+        <input id="campo1" type="text" />
+        <input id="campo2" type="text" />
+    </form>
+</body>
+</html>
